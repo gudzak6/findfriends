@@ -6,6 +6,26 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D6AA8B012FE55DE600E0B201 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8B022FE55DE600E0B202 /* FirebaseAuth */; };
+		D6AA8B032FE55DE600E0B203 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8B042FE55DE600E0B204 /* FirebaseFirestore */; };
+		D6AA8BF4300BD56100E0B102 /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8BF3300BD56100E0B102 /* FirebaseAI */; };
+		D6AA8BF6300BD56100E0B102 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8BF5300BD56100E0B102 /* FirebaseAnalytics */; };
+		D6AA8BF8300BD56100E0B102 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8BF7300BD56100E0B102 /* FirebaseCore */; };
+		D6AA8BFA300BD56100E0B102 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8BF9300BD56100E0B102 /* FirebaseFirestoreCombine-Community */; };
+		D6AA8BFC300BD56100E0B102 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8BFB300BD56100E0B102 /* FirebaseFunctions */; };
+		D6AA8BFE300BD56100E0B102 /* FirebaseFunctionsCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8BFD300BD56100E0B102 /* FirebaseFunctionsCombine-Community */; };
+		D6AA8C00300BD56100E0B102 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8BFF300BD56100E0B102 /* FirebaseInAppMessaging-Beta */; };
+		D6AA8C02300BD56100E0B102 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8C01300BD56100E0B102 /* FirebaseInstallations */; };
+		D6AA8C04300BD56100E0B102 /* FirebaseMLModelDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8C03300BD56100E0B102 /* FirebaseMLModelDownloader */; };
+		D6AA8C06300BD56100E0B102 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8C05300BD56100E0B102 /* FirebaseMessaging */; };
+		D6AA8C08300BD56100E0B102 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8C07300BD56100E0B102 /* FirebasePerformance */; };
+		D6AA8C0A300BD56100E0B102 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8C09300BD56100E0B102 /* FirebaseRemoteConfig */; };
+		D6AA8C0C300BD56100E0B102 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8C0B300BD56100E0B102 /* FirebaseStorage */; };
+		D6AA8C0E300BD56100E0B102 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8C0D300BD56100E0B102 /* FirebaseStorageCombine-Community */; };
+		D6AA8C10300BD56100E0B102 /* FirebaseVertexAI in Frameworks */ = {isa = PBXBuildFile; productRef = D6AA8C0F300BD56100E0B102 /* FirebaseVertexAI */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		D6AA8AE42FE55DE600E0B102 /* findfriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = findfriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +43,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6AA8C06300BD56100E0B102 /* FirebaseMessaging in Frameworks */,
+				D6AA8B012FE55DE600E0B201 /* FirebaseAuth in Frameworks */,
+				D6AA8BFC300BD56100E0B102 /* FirebaseFunctions in Frameworks */,
+				D6AA8C0A300BD56100E0B102 /* FirebaseRemoteConfig in Frameworks */,
+				D6AA8C00300BD56100E0B102 /* FirebaseInAppMessaging-Beta in Frameworks */,
+				D6AA8BF8300BD56100E0B102 /* FirebaseCore in Frameworks */,
+				D6AA8B032FE55DE600E0B203 /* FirebaseFirestore in Frameworks */,
+				D6AA8BFA300BD56100E0B102 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				D6AA8C10300BD56100E0B102 /* FirebaseVertexAI in Frameworks */,
+				D6AA8C0C300BD56100E0B102 /* FirebaseStorage in Frameworks */,
+				D6AA8BF6300BD56100E0B102 /* FirebaseAnalytics in Frameworks */,
+				D6AA8C0E300BD56100E0B102 /* FirebaseStorageCombine-Community in Frameworks */,
+				D6AA8C04300BD56100E0B102 /* FirebaseMLModelDownloader in Frameworks */,
+				D6AA8BF4300BD56100E0B102 /* FirebaseAI in Frameworks */,
+				D6AA8C08300BD56100E0B102 /* FirebasePerformance in Frameworks */,
+				D6AA8BFE300BD56100E0B102 /* FirebaseFunctionsCombine-Community in Frameworks */,
+				D6AA8C02300BD56100E0B102 /* FirebaseInstallations in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +102,23 @@
 			);
 			name = findfriends;
 			packageProductDependencies = (
+				D6AA8B022FE55DE600E0B202 /* FirebaseAuth */,
+				D6AA8B042FE55DE600E0B204 /* FirebaseFirestore */,
+				D6AA8BF3300BD56100E0B102 /* FirebaseAI */,
+				D6AA8BF5300BD56100E0B102 /* FirebaseAnalytics */,
+				D6AA8BF7300BD56100E0B102 /* FirebaseCore */,
+				D6AA8BF9300BD56100E0B102 /* FirebaseFirestoreCombine-Community */,
+				D6AA8BFB300BD56100E0B102 /* FirebaseFunctions */,
+				D6AA8BFD300BD56100E0B102 /* FirebaseFunctionsCombine-Community */,
+				D6AA8BFF300BD56100E0B102 /* FirebaseInAppMessaging-Beta */,
+				D6AA8C01300BD56100E0B102 /* FirebaseInstallations */,
+				D6AA8C03300BD56100E0B102 /* FirebaseMLModelDownloader */,
+				D6AA8C05300BD56100E0B102 /* FirebaseMessaging */,
+				D6AA8C07300BD56100E0B102 /* FirebasePerformance */,
+				D6AA8C09300BD56100E0B102 /* FirebaseRemoteConfig */,
+				D6AA8C0B300BD56100E0B102 /* FirebaseStorage */,
+				D6AA8C0D300BD56100E0B102 /* FirebaseStorageCombine-Community */,
+				D6AA8C0F300BD56100E0B102 /* FirebaseVertexAI */,
 			);
 			productName = findfriends;
 			productReference = D6AA8AE42FE55DE600E0B102 /* findfriends.app */;
@@ -94,6 +148,9 @@
 			);
 			mainGroup = D6AA8ADB2FE55DE600E0B102;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D6AA8B002FE55DE600E0B200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D6AA8AE52FE55DE600E0B102 /* Products */;
 			projectDirPath = "";
@@ -255,22 +312,27 @@
 				DEVELOPMENT_TEAM = TUWBYL2SX9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Find Friends needs your location to show where you are on the map and share it with friends.";
+				INFOPLIST_KEY_CFBundleDisplayName = "Find Friends";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Find Friends uses your location to show you on the map and share it with friends you choose.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gudzak6.findfriends;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -285,22 +347,27 @@
 				DEVELOPMENT_TEAM = TUWBYL2SX9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Find Friends needs your location to show where you are on the map and share it with friends.";
+				INFOPLIST_KEY_CFBundleDisplayName = "Find Friends";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Find Friends uses your location to show you on the map and share it with friends you choose.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gudzak6.findfriends;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -326,6 +393,90 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D6AA8B002FE55DE600E0B200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D6AA8B022FE55DE600E0B202 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6AA8B002FE55DE600E0B200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		D6AA8B042FE55DE600E0B204 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6AA8B002FE55DE600E0B200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		D6AA8BF3300BD56100E0B102 /* FirebaseAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseAI;
+		};
+		D6AA8BF5300BD56100E0B102 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseAnalytics;
+		};
+		D6AA8BF7300BD56100E0B102 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseCore;
+		};
+		D6AA8BF9300BD56100E0B102 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		D6AA8BFB300BD56100E0B102 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseFunctions;
+		};
+		D6AA8BFD300BD56100E0B102 /* FirebaseFunctionsCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "FirebaseFunctionsCombine-Community";
+		};
+		D6AA8BFF300BD56100E0B102 /* FirebaseInAppMessaging-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "FirebaseInAppMessaging-Beta";
+		};
+		D6AA8C01300BD56100E0B102 /* FirebaseInstallations */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseInstallations;
+		};
+		D6AA8C03300BD56100E0B102 /* FirebaseMLModelDownloader */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseMLModelDownloader;
+		};
+		D6AA8C05300BD56100E0B102 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseMessaging;
+		};
+		D6AA8C07300BD56100E0B102 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebasePerformance;
+		};
+		D6AA8C09300BD56100E0B102 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseRemoteConfig;
+		};
+		D6AA8C0B300BD56100E0B102 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseStorage;
+		};
+		D6AA8C0D300BD56100E0B102 /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "FirebaseStorageCombine-Community";
+		};
+		D6AA8C0F300BD56100E0B102 /* FirebaseVertexAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseVertexAI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D6AA8ADC2FE55DE600E0B102 /* Project object */;
 }

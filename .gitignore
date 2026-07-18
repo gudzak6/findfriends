@@ -20,7 +20,9 @@ xcuserdata/
 .swiftpm/
 Packages/
 Package.pins
+# Keep the Xcode workspace lockfile for reproducible Firebase versions
 Package.resolved
+!findfriends.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 
 # macOS
 .DS_Store

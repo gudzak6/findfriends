@@ -1,0 +1,79 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function friendshipId(a, b) {
+      return a < b ? a + '_' + b : b + '_' + a;
+    }
+
+    function areFriends(otherUserId) {
+      return isSignedIn()
+        && exists(
+          /databases/$(database)/documents/friendships/$(friendshipId(request.auth.uid, otherUserId))
+        );
+    }
+
+    function isFriendshipMember() {
+      return isSignedIn() && request.auth.uid in resource.data.memberIds;
+    }
+
+    function validStatus() {
+      let data = request.resource.data;
+      return (!("statusText" in data) || data.statusText == null || data.statusText is string)
+        && (!("statusEmoji" in data) || data.statusEmoji == null || data.statusEmoji is string)
+        && (!("statusKind" in data) || data.statusKind == null || data.statusKind in ["manual", "idle", "away"]);
+    }
+
+    match /users/{userId} {
+      allow read: if isOwner(userId) || areFriends(userId);
+      allow create: if isOwner(userId) && validStatus();
+      allow update: if isOwner(userId) && validStatus();
+      allow delete: if isOwner(userId);
+
+      // Phone numbers you save for friends (used for Message / iMessage).
+      match /savedContacts/{friendId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    match /friendships/{friendshipId} {
+      // Missing docs must be get-able so accept can check "already friends"
+      // without resource.data blowing up the rule.
+      allow get: if isSignedIn() && (resource == null || isFriendshipMember());
+
+      // Requires query: where memberIds array-contains request.auth.uid
+      allow list: if isFriendshipMember();
+
+      allow create: if isSignedIn()
+        && request.auth.uid in request.resource.data.memberIds
+        && request.resource.data.memberIds.size() == 2;
+
+      allow delete: if isFriendshipMember();
+    }
+
+    match /invites/{code} {
+      allow get: if isSignedIn();
+      allow list: if false;
+
+      allow create: if isSignedIn()
+        && request.resource.data.fromUserId == request.auth.uid
+        && request.resource.data.status == "pending";
+
+      allow update: if isSignedIn() && (
+        resource.data.fromUserId == request.auth.uid
+        || (
+          resource.data.status == "pending"
+          && request.resource.data.status == "accepted"
+          && request.resource.data.acceptedBy == request.auth.uid
+        )
+      );
+    }
+  }
+}

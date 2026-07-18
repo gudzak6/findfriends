@@ -7,37 +7,55 @@ import SwiftUI
 import MapKit
 
 struct FriendDetailView: View {
-    let friend: Friend
+    @Environment(AppSession.self) private var session
+
+    let friend: FriendPresence
     let onCenterOnMap: () -> Void
 
     @State private var placeName: String?
+
+    private var liveFriend: FriendPresence {
+        session.friends.first(where: { $0.id == friend.id }) ?? friend
+    }
 
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
                 FriendAvatarView(
-                    initials: friend.initials,
-                    colorHex: friend.avatarColorHex,
+                    initials: liveFriend.initials,
+                    colorHex: liveFriend.avatarColorHex,
                     size: 88,
-                    showsStatusRing: friend.displayStatus != nil
+                    showsStatusRing: liveFriend.displayStatus != nil
                 )
 
                 VStack(spacing: 6) {
-                    Text(friend.name)
+                    Text(liveFriend.displayName)
                         .font(.title2.weight(.bold))
+
+                    if let phone = AccountUser.normalizedPhone(liveFriend.phoneNumber) {
+                        Text(phone)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
 
                     if let placeName {
                         Text(placeName)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
+                    } else if !liveFriend.isSharingLocation {
+                        Text("Location not shared")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
                     }
 
-                    Text("Updated \(friend.lastUpdated, style: .relative) ago")
-                        .font(.caption)
-                        .foregroundStyle(.tertiary)
+                    if let lastUpdated = liveFriend.lastUpdated {
+                        Text("Updated \(lastUpdated, style: .relative) ago")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                    }
                 }
 
-                if let status = friend.displayStatus {
+                if let status = liveFriend.displayStatus {
                     VStack(spacing: 8) {
                         Text("Status")
                             .font(.caption.weight(.semibold))
@@ -58,11 +76,18 @@ struct FriendDetailView: View {
                 }
 
                 VStack(spacing: 12) {
-                    actionButton(title: "Show on Map", icon: "map", color: .green, action: onCenterOnMap)
-                    actionButton(title: "Get Directions", icon: "arrow.triangle.turn.up.right.diamond", color: .blue) {
-                        openDirections()
+                    if liveFriend.canMessage {
+                        actionButton(title: "Message", icon: "message.fill", color: .green) {
+                            openMessages()
+                        }
                     }
-                    actionButton(title: "Notify Me", icon: "bell", color: .orange) {}
+
+                    if liveFriend.coordinate != nil {
+                        actionButton(title: "Show on Map", icon: "map", color: .teal, action: onCenterOnMap)
+                        actionButton(title: "Get Directions", icon: "arrow.triangle.turn.up.right.diamond", color: .orange) {
+                            openDirections()
+                        }
+                    }
                 }
                 .padding(.horizontal)
             }
@@ -70,7 +95,9 @@ struct FriendDetailView: View {
         }
         .background(Color(.systemGroupedBackground))
         .task {
-            placeName = await reverseGeocode(friend.coordinate)
+            if let coordinate = liveFriend.coordinate {
+                placeName = await reverseGeocode(coordinate)
+            }
         }
     }
 
@@ -96,10 +123,17 @@ struct FriendDetailView: View {
         .tint(color)
     }
 
+    private func openMessages() {
+        guard let recipient = liveFriend.messageRecipient else { return }
+        // Open the Messages app (iMessage when available) addressed to their number/email.
+        MessagesLauncher.open(recipient: recipient)
+    }
+
     private func openDirections() {
-        let placemark = MKPlacemark(coordinate: friend.coordinate)
+        guard let coordinate = liveFriend.coordinate else { return }
+        let placemark = MKPlacemark(coordinate: coordinate)
         let item = MKMapItem(placemark: placemark)
-        item.name = friend.name
+        item.name = liveFriend.displayName
         item.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
     }
 
